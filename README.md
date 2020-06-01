@@ -1,24 +1,52 @@
-# README
+# WORKOUT DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## userテーブル
+|Column|Type|Option|
+|------|----|------|
+|email|string|null: false|
+|password|string|null: false|
+|name|string|null: false|
 
-Things you may want to cover:
+### Asociation
+- has_many :articles
+- has_many :favorites
+- has_many :comments
 
-* Ruby version
+## articleテーブル
+|Column|Type|Option|
+|------|----|------|
+|content|text|null: false|
+|title|string|null: false|
+|category|string|null: false|
+|image|text||
+|user|references|null: false, foreign_key: true|
 
-* System dependencies
 
-* Configuration
+### Asociation
+- belongs_to :user
+- has_many :comments
+- has_many :favorites
 
-* Database creation
 
-* Database initialization
+## commentテーブル
+|Column|Type|Option|
+|------|----|------|
+|article|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|text|text|null: false|
 
-* How to run the test suite
+### Asociation
+- belongs_to :article
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
+## favoriteテーブル
+|Column|Type|Option|
+|------|----|------|
+|user|references|null: false, foreign_key: true|
+|article|references|null: false, foreign_key: true|
 
-* Deployment instructions
+### Asociation
+- belongs_to :user
+- belongs_to :articles
 
-* ...
+
