@@ -1,0 +1,121 @@
+
+%header
+  %p.header-right フィットネスと旅で人生を武豊に
+    
+  .title-name
+    =image_tag "shogo-logo", size:"100x135",alt:"title-logo"
+    %h1 わたしはゴリラになりたい
+
+  .header-image 
+    =image_tag "shogo.jpg", size: "1000x500",alt:"header-image"
+
+  %nav
+    %ul
+      %li 
+        =link_to 'TOP','#'
+      %li 
+        =link_to '筋トレ論','#'
+      %li 
+        =link_to '世界の筋肉飯','#'
+      %li 
+        =link_to '海外筋トレ情報','#'
+      %li 
+        =link_to '海外旅行情報','#'
+      %li 
+        =link_to '雑記','#'
+
+%main
+  .top-contents
+    .top-contents__box
+      .content-image
+        =image_tag "https://via.placeholder.com/250x150",alt:"content-image"
+      .content-inside
+        .content-date
+          %p 1998年11月22日
+
+        .content-title
+          %h2 筋肉をつけながら痩せる方法
+
+        .content-description
+          %p そんな楽に筋肉をつけながら痩せる方法などない他当たれ
+
+  .top-side
+
+    .top-side__box
+      .top-side__recommend_supplement
+        %h2.side_title 筋トレ初心者におすすめのサプリ
+        =image_tag "https://via.placeholder.com/300x250",alt:"rec-sup"
+    .top-side__box
+      .top-side__iherb
+        %h2.side_title IHERBでお得にお買い物
+        =image_tag "https://via.placeholder.com/300x250",alt:"IHERB"
+
+    .top-side__box
+      .top-side__search
+        %h2.side_title 検索
+        %input.top-side__search_text{:type => "search"}
+    .top-side__box
+      .top-side__profile
+        %h2.side_title プロフィール
+
+        .top-side__profile_box
+          .top-side__profile_image
+            =image_tag "https://via.placeholder.com/100x100",alt:"profile-image"
+
+          .top-side__profile_content
+            %h2 shogo
+            %p 心も体もでかいバイリンガルの男
+    .top-side__box
+      .top-side__article
+        %h2.side_title おすすめ記事
+
+        %ul
+          .top-side__article_box
+            %li.top-side__articles
+              =image_tag "https://via.placeholder.com/100x100",alt:"rec-article1"
+            %h2 
+              =link_to '記事１','#'
+          .top-side__article_box
+            %li.top-side__articles
+              =image_tag "https://via.placeholder.com/100x100",alt:"rec-article2"
+            %h2 
+              =link_to '記事2','#'
+          .top-side__article_box
+            %li.top-side__articles
+              =image_tag "https://via.placeholder.com/100x100",alt:"rec-article3"
+            %h2 
+              =link_to '記事3','#'
+    .top-side__box
+      .top-side__category
+        %h2.side_title カテゴリー検索
+        %select{:class => "main-side-category-choice name=\"sample\"", :size => "1"}
+          %option{:value => "サンプル１"} さんぷるーん1
+          %option{:value => "サンプル１"} さんぷるーん2
+          %option{:value => "サンプル１"} さんぷるーん3
+          %option{:value => "サンプル１"} さんぷるーん4
+
+%footer
+  .footer_left
+    %ul.footer_left_content
+      %li 
+        =link_to 'プライバシーポリシー','#'
+      %li 
+        =link_to '免責事項','#'
+
+  .footer_right
+    %p 2020年  ©わたゴリ
+
+
+
+
+
+
+
+
+
+
+
+   
+    
+
+
