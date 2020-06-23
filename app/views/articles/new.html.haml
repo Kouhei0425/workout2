@@ -1,0 +1,24 @@
+= render 'header'
+.post-page
+  .post-page__title
+    %h1 新規記事追加画面
+  .post-page__form
+    = form_with model:@article, local: true do |f| 
+      .post-page__form__title
+        =f.label :title
+        %br
+        =f.text_field :title,size: 40,placeholder: "タイトルを入力"
+      .post-page__form__category
+        =f.label :category
+        %br
+        =f.select :category, [ ["サプリ","サプリ"], ["トレーニング","トレーニング"], ["食事","食事"] ], prompt: "記事のカテゴリを選択してください"
+      .post-page__form__content
+        =f.label :content
+        %br
+        =f.text_area :content,size: "80x10",placeholder: "記事の内容を入力"
+      .post-page__form__image
+        =f.label :image
+        %br
+        =f.file_field :image
+      .post-page__form__submit
+        =f.submit "投稿", class: "submit-btn"

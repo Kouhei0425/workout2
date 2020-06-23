@@ -1,0 +1,52 @@
+.top-side__box
+  .top-side__recommend_supplement
+    %h2.side_title 筋トレ初心者におすすめのサプリ
+    =image_tag "https://via.placeholder.com/300x250",alt:"rec-sup"
+.top-side__box
+  .top-side__iherb
+    %h2.side_title IHERBでお得にお買い物
+    =image_tag "https://via.placeholder.com/300x250",alt:"IHERB"
+
+.top-side__box
+  .top-side__search
+    %h2.side_title 検索
+    %input.top-side__search_text{:type => "search"}
+.top-side__box
+  .top-side__profile
+    %h2.side_title プロフィール
+
+    .top-side__profile_box
+      .top-side__profile_image
+        =image_tag "https://via.placeholder.com/100x100",alt:"profile-image"
+
+      .top-side__profile_content
+        %h2 shogo
+        %p 心も体もでかいバイリンガルの男
+.top-side__box
+  .top-side__article
+    %h2.side_title おすすめ記事
+
+    %ul
+      .top-side__article_box
+        %li.top-side__articles
+          =image_tag "https://via.placeholder.com/100x100",alt:"rec-article1"
+        %h2 
+          =link_to '記事１','#'
+      .top-side__article_box
+        %li.top-side__articles
+          =image_tag "https://via.placeholder.com/100x100",alt:"rec-article2"
+        %h2 
+          =link_to '記事2','#'
+      .top-side__article_box
+        %li.top-side__articles
+          =image_tag "https://via.placeholder.com/100x100",alt:"rec-article3"
+        %h2 
+          =link_to '記事3','#'
+.top-side__box
+  .top-side__category
+    %h2.side_title カテゴリー検索
+    %select{:class => "main-side-category-choice name=\"sample\"", :size => "1"}
+      %option{:value => "サンプル１"} さんぷるーん1
+      %option{:value => "サンプル１"} さんぷるーん2
+      %option{:value => "サンプル１"} さんぷるーん3
+      %option{:value => "サンプル１"} さんぷるーん

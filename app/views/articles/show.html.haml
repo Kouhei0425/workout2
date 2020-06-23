@@ -1,0 +1,11 @@
+= render 'header'
+%main
+  .show-content
+    .show-content__title
+      %h1= @article.title
+    .show-content__image
+      = image_tag @article.image.url, size: '650x350'
+    .show-content__descreption
+      = simple_format @article.content
+  .top-side
+    = render 'top-side'
