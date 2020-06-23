@@ -56,8 +56,10 @@
             %p= article.title
           .content-description
             %p= article.content.truncate(54)
-          .content-show
-            = link_to '詳細', article_path(article.id)
+          .content-inside__btn
+            %p= link_to '詳細', article_path(article.id)
+            %p= link_to '編集', edit_article_path(article.id)
+            %p= link_to "削除", "articles/#{article.id}", method: :delete, data: { confirm: "本当に削除しますか？" }
 
   .top-side
     .top-side__box

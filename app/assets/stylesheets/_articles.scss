@@ -92,6 +92,12 @@ main {
                     font-size: 14.4px;
                     color: #888888;
                 }
+                &__btn{
+                    display: flex;
+                    p{
+                        padding-right: 3px;
+                    }
+                }
             }
         }
     }
