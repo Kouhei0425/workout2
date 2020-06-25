@@ -1,13 +1,15 @@
 header {
     margin: 0 auto;
-    p {
+    .devise{
+        display:flex;
+        margin:0 auto;
         width: 1000px;
-        margin: 0 auto;
-        font-size: 5px;
-        text-align: right;
-        padding-top: 20px;
+        justify-content:flex-end;
+        p,strong{
+            font-size: 18px;
+            padding: 5px;
+        }
     }
-
     .title-name {
         display: flex;
         justify-content: center;

@@ -1,6 +1,13 @@
 
 %header
-  %p.header-right フィットネスと旅で人生を武豊に
+  .devise
+    - if user_signed_in?
+      %strong= link_to current_user.username, edit_user_registration_path
+      %p= link_to '記事投稿画面', new_article_path
+      %p= link_to 'ログアウト', destroy_user_session_path, method: :delete
+    - else
+      %p= link_to 'サインアップ', new_user_registration_path
+      %p= link_to 'ログイン', new_user_session_path
     
   .title-name
     =image_tag "shogo-logo", size:"100x135",alt:"title-logo"
@@ -29,22 +36,6 @@
 
 %main
   .top-contents
-    -# .top-contents__box
-    -#   .content-image
-    -#     =image_tag "https://via.placeholder.com/250x150",alt:"content-image"
-    -#   .content-inside
-    -#     .content-date
-    -#       %p 
-    -#         =@article.created_at
-
-    -#     .content-title
-    -#       %p
-    -#         =@article.title
-
-    -#     .content-description
-    -#       %p
-    -#         =@article.content
-
     -@article.each do |article|
       .top-contents__box
         .content-image
@@ -58,8 +49,10 @@
             %p= article.content.truncate(54)
           .content-inside__btn
             %p= link_to '詳細', article_path(article.id)
-            %p= link_to '編集', edit_article_path(article.id)
-            %p= link_to "削除", "articles/#{article.id}", method: :delete, data: { confirm: "本当に削除しますか？" }
+            - if user_signed_in?
+              %p= link_to '編集', edit_article_path(article.id)
+              %p= link_to "削除", "articles/#{article.id}", method: :delete, data: { confirm: "本当に削除しますか？" }
+              
 
   .top-side
     .top-side__box
@@ -122,8 +115,6 @@
         =link_to 'プライバシーポリシー','#'
       %li 
         =link_to '免責事項','#'
-      %li
-        =link_to '記事投稿画面', new_article_path
 
   .footer_right
     %p 2020年  ©わたゴリ
