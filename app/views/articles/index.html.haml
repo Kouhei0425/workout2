@@ -3,7 +3,7 @@
   .devise
     - if user_signed_in?
       %strong= link_to current_user.username, edit_user_registration_path
-      %p= link_to '記事投稿画面', new_article_path
+      %p= link_to 'マイページ', user_path(current_user.id)
       %p= link_to 'ログアウト', destroy_user_session_path, method: :delete
     - else
       %p= link_to 'サインアップ', new_user_registration_path
@@ -21,7 +21,7 @@
       %li
 
       %li 
-        =link_to 'TOP','#'
+        =link_to 'TOP', root_path
       %li 
         =link_to '筋トレ論','#'
       %li 
@@ -43,15 +43,13 @@
         .content-inside
           .content-date
             %p= article.created_at.strftime('%Y/%m/%d')
+            %p= article.user.username
           .content-title
             %p= article.title
           .content-description
             %p= article.content.truncate(54)
           .content-inside__btn
             %p= link_to '詳細', article_path(article.id)
-            - if user_signed_in?
-              %p= link_to '編集', edit_article_path(article.id)
-              %p= link_to "削除", "articles/#{article.id}", method: :delete, data: { confirm: "本当に削除しますか？" }
               
 
   .top-side
