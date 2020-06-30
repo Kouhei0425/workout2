@@ -1,0 +1,29 @@
+= render 'header'
+.mypage
+  .mypage__name
+    %h1= "#{@user.username}さんのマイページ"
+  .mypage__option
+    %p= link_to '新規記事の作成', new_article_path
+    %p= link_to 'アカウント情報の編集', edit_user_registration_path
+    %p= link_to 'ログアウト', destroy_user_session_path, method: :delete
+    
+.mypage-articles-title
+  %h1 ・投稿した記事の一覧
+.mypage-articles
+  -@user.articles.each do |article|
+    .mypage-box
+      .mypage-box__image
+        = image_tag article.image.url, size: '300x200'
+      .mypage-box__inside
+        .mypage-box__inside__date
+          %p= article.created_at.strftime('%Y/%m/%d')
+        .mypage-box__inside__title
+          %p= article.title
+        .mypage-box__inside__content
+          %p= article.content.truncate(54)
+        .mypage-box__inside__option
+          %p= link_to '詳細', article_path(article.id)
+          %p= link_to '編集', edit_article_path(article.id)
+          %p= link_to "削除", "articles/#{article.id}", method: :delete, data: { confirm: "本当に削除しますか？" }
+
+  

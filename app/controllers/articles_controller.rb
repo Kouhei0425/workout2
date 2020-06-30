@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
+  before_action:authenticate_user!, except: [:index,:show]
+  before_action:ensure_correct_user, only: [:edit,:update,:destroy]
+ 
+
   def index
-    @article=Article.all
+    @article=Article.includes(:user)
   end
 
   def new
@@ -9,8 +13,9 @@ class ArticlesController < ApplicationController
 
   def create
     @article=Article.new(article_params)
+    @article.user_id = current_user.id
     if @article.save
-      redirect_to root_path
+      redirect_to user_path(current_user.id)
     else
       render 'new'
     end
@@ -18,6 +23,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article=Article.find(params[:id])
+    @user = @article.user
   end
 
   def edit
@@ -38,6 +44,14 @@ class ArticlesController < ApplicationController
     @article=Article.find(params[:id])
     @article.destroy
     redirect_to root_path
+  end
+
+  def ensure_correct_user
+    @article=Article.find(params[:id])
+    if @article.user_id != current_user.id
+      flash[:notice] = '君に編集する権限はないよーーーーーーーーーん'
+      redirect_to root_path
+    end
   end
   
 
