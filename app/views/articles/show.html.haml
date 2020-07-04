@@ -7,5 +7,19 @@
       = image_tag @article.image.url, size: '650x350'
     .show-content__descreption
       = simple_format @article.content
+
+    
+    .comment 
+      %h1 コメントの一覧 
+      .comment__content
+        -@comments.each do |c|
+          %p= "ユーザー名:#{c.user.username}" unless c.user.blank?
+          %p= simple_format c.content unless c.content.blank?
+    .comment-form
+      = form_with(model: [@article, @comment], local: true) do |f| 
+        %p= f.label :コメントを残す
+        %p= f.text_area :content,size:"70x5"
+        %p= f.submit "コメントする"
+
   .top-side
     = render 'top-side'

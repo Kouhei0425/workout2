@@ -1,0 +1,25 @@
+.comment{
+  width: 650px;
+  margin-top: 50px;
+  border-top: 2px solid #484d51;
+  box-shadow: 0px 0px 1px #ccc;
+  h1{
+    font-size: 30px;
+    box-shadow: 0px 0px 1px #ccc;
+  }
+  &__content{
+    margin-top: 8px;
+    p{
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+  }
+}
+
+.comment-form{
+  width: 650px;
+  margin-top: 30px;
+  label{
+    font-size: 30px;
+  }
+}
